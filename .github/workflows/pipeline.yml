@@ -33,7 +33,7 @@ jobs:
             
       - name: Mover arquivos para o diretório correto
         run: |
-          mv caminho/original/* binario/build/
+          mv ./main.py binario/build/
 
   deploy:
     needs: build
