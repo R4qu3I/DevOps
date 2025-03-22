@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main  # O deploy será acionado em pushes para o branch "main"
+      - main
 
 jobs:
   build:
@@ -26,6 +26,14 @@ jobs:
       - name: Rodar testes
         run: |
           pytest
+          
+      - name: Criar pasta para build
+        run: |
+            mkdir -p binario/build
+            
+      - name: Mover arquivos para o diretório correto
+        run: |
+          mv caminho/original/* binario/build/
 
   deploy:
     needs: build
