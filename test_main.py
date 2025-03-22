@@ -21,7 +21,11 @@ def converter_para_binario(num):
         else:
             binario_dec.append("0")
 
-    binario = binario_int + "." + "".join(binario_dec)
+    # Garantir que a parte decimal tenha "0." como prefixo e lidar com casos de "1."
+    binario_int = binario_int if binario_int != "" else "0"
+    binario_dec = "".join(binario_dec)
+    binario = f"{binario_int}.{binario_dec}" if binario_dec else f"{binario_int}.0"
+
     return binario
 
 # Testes para verificar os resultados
